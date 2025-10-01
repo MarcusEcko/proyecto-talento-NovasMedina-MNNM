@@ -11,10 +11,7 @@ function Header () {
                     </Navbar.Brand> 
                 </Nav>
 
-                <div className="d-flex align-items-center ms-auto">
-                    <i className="bi bi-cart4 text-white fs-2 me-2"></i>
-                    <Button variant="primary">Log In</Button>
-                </div>
+                <i className="bi bi-cart4 text-white fs-2 me-2"></i>
 
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 
@@ -25,6 +22,10 @@ function Header () {
                         <Nav.Link>Contact Us</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
+                
+                <div className="d-flex align-items-center p-1">
+                    <Button variant="primary">Log In</Button>
+                </div>
             </Container>
         </Navbar>
     );

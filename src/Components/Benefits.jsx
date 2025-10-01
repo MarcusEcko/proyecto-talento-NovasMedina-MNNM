@@ -1,43 +1,37 @@
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, Row, Col } from "react-bootstrap";
 import packageImg from "../assets/package.jpg";
 import drivingImg from "../assets/driving.jpg";
 import liftImg from "../assets/lift.jpg";
 
-function Benefits () {
-    return(
-        <Container>
-            <Container>
-                <h2>Our Services</h2>
-            </Container>
+function Benefits() {
+    const items = [
+        { img: packageImg, text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut beatae amet labore veniam consectetur accusantium?" },
+        { img: liftImg, text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut beatae amet labore veniam consectetur accusantium?" },
+        { img: drivingImg, text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut beatae amet labore veniam consectetur accusantium?" },
+    ];
 
-            <Container className="img-fluid w-50">
-                <Card className="m-3">
-                    <Card.Img variant="top" src={packageImg} alt="package.jpg"/>
-                    <Card.Body>
-                        <Card.Text>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut beatae amet labore veniam consectetur accusantium?
-                        </Card.Text>
-                    </Card.Body>
+    return (
+        <Container className="my-5">
+        <h2 className="text-center mb-4">Our Services</h2>
+        <Row xs={1} md={3} className="g-4">
+            {items.map((item, index) => (
+            <Col key={index}>
+                <Card className="h-100 text-center">
+                <Card.Img 
+                    variant="top" 
+                    src={item.img} 
+                    className="p-3" 
+                    style={{ height: "150px", objectFit: "contain" }} 
+                />
+                <Card.Body>
+                    <Card.Text>{item.text}</Card.Text>
+                </Card.Body>
                 </Card>
-                <Card className="m-3">
-                    <Card.Img variant="top" src={liftImg} alt="lift.jpg" />
-                    <Card.Body>
-                        <Card.Text>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut beatae amet labore veniam consectetur accusantium?
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-                <Card className="m-3">
-                    <Card.Img variant="top" src={drivingImg} alt="drive.jpg" />
-                    <Card.Body>
-                        <Card.Text>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut beatae amet labore veniam consectetur accusantium?
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-            </Container>
+            </Col>
+            ))}
+        </Row>
         </Container>
-    )
+  );
 }
 
 export default Benefits;
