@@ -5,6 +5,7 @@ import Sections from "./Components/Sections";
 import Featured from "./Components/Featured";
 import Benefits from "./Components/Benefits";
 import NewsLetter from "./Components/NewsLetter";
+import Footer from "./Components/Footer";
 import { Spinner } from "react-bootstrap";
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
       <Featured products={products} />
       <Benefits />
       <NewsLetter />
-      ////footer
+      <Footer />
     </div>
   )
 }

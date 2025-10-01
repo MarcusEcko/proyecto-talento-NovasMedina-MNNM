@@ -1,10 +1,9 @@
-import { Card, Button, Container } from 'react-bootstrap';
-import helpImg from '../assets/help.jpg';
+import { Card, Button, Container, Form } from 'react-bootstrap';
 
 function NewsLetter (){
     return(
-        <Card className="bg-dark text-white border-0">
-            <Card.Img src={helpImg} alt="help" style={{ height: "60vh", objectFit: "cover" }}/>
+        <Card className="bg-dark text-white border-0 rounded-0">
+            <Card.Img src='https://picsum.photos/1600/900' alt="help" style={{ height: "60vh", objectFit: "cover" }}/>
             
             <Card.ImgOverlay className='d-flex align-items-center justify-content-center bg-dark bg-opacity-50'>
                 <Container className="text-center">
@@ -16,7 +15,16 @@ function NewsLetter (){
                     
                     <Card.Text className='small mb-3'>Last Updated 3 mins ago</Card.Text>
                     
-                    <Button variant="primary" size="lg">More Info</Button>
+                    <Form className="d-flex justify-content-center">
+                        <Form.Control 
+                            type="email" 
+                            placeholder="Email" 
+                            className="me-2 w-50"
+                        />
+                        <Button variant="primary" size="lg">
+                            Subscribe
+                        </Button>
+                    </Form>
                 </Container>
             </Card.ImgOverlay>
         </Card>
