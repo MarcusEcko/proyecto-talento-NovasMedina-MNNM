@@ -1,6 +1,6 @@
-import { Row, Col, Card, Button, Container } from 'react-bootstrap';
+import { Row, Col, Card, Button, Container, CardImgOverlay } from 'react-bootstrap';
 
-function Featured ({ products }) {
+function Sections ({ products }) {
 
     const items = products.slice(0, 4);
 
@@ -15,20 +15,20 @@ function Featured ({ products }) {
                 </p>
             </Container>
 
-            <Row xs={1} md={2} className="g-4">
+            <Row xs={1} md={3} className="g-4 justify-content-center">
                 {items.map((i, index) => (
                     <Col key={index}>
                         <Card >
                             <Card.Img variant="top" src={i.images[0]} />
-                            <Card.Body>
-                                <Card.Title>{i.category}</Card.Title>
-                                <Card.Text>
-                                    Lorem, ipsum dolor.
+                            <Card.ImgOverlay className="d-flex flex-column justify-content-center align-items-center bg-dark bg-opacity-50 p-3">
+                                <Card.Title className='text-light text-center'>{i.category}</Card.Title>
+                                <Card.Text className='text-white-50 text-center'>
+                                    Explore category's products
                                 </Card.Text>
                                 <Container className='d-flex justify-content-center my-4'>
-                                    <Button variant="primary">See more</Button>
+                                    <Button variant="light">See more</Button>
                                 </Container>
-                            </Card.Body>
+                            </Card.ImgOverlay>
                         </Card>
                     </Col>
                 ))}
@@ -37,4 +37,4 @@ function Featured ({ products }) {
     )
 };
 
-export default Featured;
+export default Sections;
