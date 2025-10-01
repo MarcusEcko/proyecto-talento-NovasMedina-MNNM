@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Header from "./Components/Header"
 import Hero from "./Components/Hero"
-import Featured from "./Components/Sections";
+import Sections from "./Components/Sections";
+import Featured from "./Components/Featured";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -24,6 +25,10 @@ function App() {
       <Header />
       <Hero products={products} />
       <Sections products={products} />
+      <Featured products={products} />
+      ////benefits
+      ////newsletter
+      ////footer
     </div>
   )
 }

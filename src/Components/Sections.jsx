@@ -2,7 +2,7 @@ import { Row, Col, Card, Button, Container, CardImgOverlay } from 'react-bootstr
 
 function Sections ({ products }) {
 
-    const items = products.slice(0, 4);
+    const items = products.slice(0, 6);
 
     return(
         <Container>
