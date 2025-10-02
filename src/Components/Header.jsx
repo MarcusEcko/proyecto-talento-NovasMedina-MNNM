@@ -1,4 +1,4 @@
-import { Container, Navbar, Nav, Button } from "react-bootstrap";
+import { Container, Navbar, Nav, Button, Dropdown } from "react-bootstrap";
 
 function Header () {
     return(
@@ -11,21 +11,29 @@ function Header () {
                     </Navbar.Brand> 
                 </Nav>
 
-                <i className="bi bi-cart4 text-white fs-2 me-2"></i>
-
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <div className="d-flex align-items-center">
+                    <Button variant="primary" className="m-1">Log In</Button>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                </div>
                 
                 <Navbar.Collapse  id="responsive-navbar-nav">
                     <Nav className="ms-auto">
                         <Nav.Link>Home</Nav.Link>
                         <Nav.Link>About</Nav.Link>
                         <Nav.Link>Contact Us</Nav.Link>
+                        <Dropdown className="m-1">
+                            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                Explore
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu className="dropdown-menu-dark">
+                                <Dropdown.Item className="text-white" href="#/action-1">Our Products</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     </Nav>
+                    <i className="bi bi-cart4 text-white fs-2 m-1"></i>
                 </Navbar.Collapse>
                 
-                <div className="d-flex align-items-center p-1">
-                    <Button variant="primary">Log In</Button>
-                </div>
             </Container>
         </Navbar>
     );
