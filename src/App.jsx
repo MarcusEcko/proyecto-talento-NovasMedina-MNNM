@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+import { Routes, Route } from "react-router-dom";
+import Products from "./Pages/Products";
+import About from "./Pages/About";
 import Home from "./Pages/Home";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [cargando, setCargando] = useState(false);
+  const [cargando, setCargando] = useState(true); //starts true
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -36,7 +39,12 @@ function App() {
 
   return (
     <div>
-      <Home products={products}/>
+      <Routes>
+        <Route path="/" element={<Home products={products} />} />
+        <Route path="/home" element={<Home products={products} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/products" element={<Products products={products}/>} />
+      </Routes>
     </div>
   )
 }
