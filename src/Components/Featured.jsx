@@ -1,4 +1,5 @@
 import { Card, Row, Col, Container, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function Featured ({ products }) {
 
@@ -30,7 +31,9 @@ function Featured ({ products }) {
                                     </b>
                                 </Card.Text>
                                 <Container className='d-flex justify-content-center my-4'>
-                                    <Button variant="primary">See More</Button>
+                                    <Link to="/products">
+                                        <Button variant="primary">See More</Button>
+                                    </Link>
                                 </Container>
                             </Card.Body>
                         </Card>

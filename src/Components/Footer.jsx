@@ -1,4 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Footer (){
     return(
@@ -15,14 +16,13 @@ function Footer (){
                     {/* LINKS */}
                     <Col md={4}>
                         <h5>Useful Links</h5>
-                        <li><a href="#" className="text-white">Home</a></li>
-                        <li><a href="#" className="text-white">Products</a></li>
-                        <li><a href="#" className="text-white">About</a></li>
-                        <li><a href="#" className="text-white">Contact Us</a></li>
+                        <li><Link to="/" className="text-white">Home</Link></li>
+                        <li><Link to="/products" className="text-white">Products</Link></li>
+                        <li><Link to="/about" className="text-white">About Us</Link></li>
                     </Col>
 
                     {/* SOCIAL MEDIA */}
-                    <Col md={4}>
+                    <Col id="contact" md={4}>
                         <h5>Follow Us</h5>
                         <p>
                             <a href="#" className="text-white me-2">Facebook</a>

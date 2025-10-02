@@ -1,4 +1,5 @@
 import { Carousel , Container, Button} from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Hero ({ products }) {
 
@@ -23,9 +24,11 @@ function Hero ({ products }) {
             </Carousel>
             
             <Container className="d-flex justify-content-center my-4">
-                <Button variant="info">
-                    More Offers
-                </Button>
+                <Link to="/products">
+                    <Button variant="info">
+                        More Offers
+                    </Button>
+                </Link>
             </Container>
 
         </Container>

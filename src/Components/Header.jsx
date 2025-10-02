@@ -7,12 +7,12 @@ function Header () {
         <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg" sticky="top" className="">
             <Container fluid>
                 <Nav className="me-auto">
-                    <Navbar.Brand>
-                        <Link to="/">
+                    <Link to="/">
+                        <Navbar.Brand>
                             <i className="bi bi-bootstrap-fill"></i> {''}
-                        </Link>
-                        Shopping Cart
-                    </Navbar.Brand> 
+                            Shopping Cart
+                        </Navbar.Brand> 
+                    </Link>
                 </Nav>
 
                 <div className="d-flex align-items-center">
@@ -24,7 +24,7 @@ function Header () {
                     <Nav className="ms-auto">
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} to="/about">About</Nav.Link>
-                        <Nav.Link as={Link} to="/">Contact Us</Nav.Link>
+                        <Nav.Link href="#contact">Contact Us</Nav.Link>
 
                         <Dropdown className="m-1">
                             <Dropdown.Toggle variant="success" id="dropdown-basic">

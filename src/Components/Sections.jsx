@@ -1,4 +1,5 @@
 import { Row, Col, Card, Button, Container, CardImgOverlay } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function Sections ({ products }) {
 
@@ -26,7 +27,9 @@ function Sections ({ products }) {
                                     Explore category's products
                                 </Card.Text>
                                 <Container className='d-flex justify-content-center my-4'>
-                                    <Button variant="light">See more</Button>
+                                    <Link to="/products">
+                                        <Button variant="light">See more</Button>
+                                    </Link>
                                 </Container>
                             </Card.ImgOverlay>
                         </Card>
