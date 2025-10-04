@@ -1,6 +1,7 @@
 import { Col, Container, Row, Card, Button } from "react-bootstrap";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import { Link } from "react-router-dom";
 
 function Products ({ products }) {
     const items = products.slice(0, 12);
@@ -24,7 +25,7 @@ function Products ({ products }) {
                                     </b>
                                 </Card.Text>
                                 <Container className='d-flex justify-content-center my-4'>
-                                    <Button variant="primary">Buy Now</Button>
+                                    <Button as={Link} to={`/detail/${i.id}`} variant="primary">Buy Now</Button>
                                 </Container>
                             </Card.Body>
                         </Col>

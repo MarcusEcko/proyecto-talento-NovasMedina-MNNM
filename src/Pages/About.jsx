@@ -66,7 +66,7 @@ function About (){
             </Container>
             
             <Container className="p-4">
-                <h1 className="text-center mb-4 fw-bold h-4">What our clients say about us:</h1>
+                <h1 className="text-center mb-4 fw-bold">What our clients say about us:</h1>
                 
                 <Carousel>
                     <Carousel.Item>

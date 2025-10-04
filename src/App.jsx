@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
 import Products from "./Pages/Products";
+import Detail from "./Pages/Detail"
 import About from "./Pages/About";
 import Home from "./Pages/Home";
 
@@ -44,6 +45,7 @@ function App() {
         <Route path="/home" element={<Home products={products} />} />
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products products={products}/>} />
+        <Route path="/detail/:id" element={<Detail products={products}/>} />
       </Routes>
     </div>
   )
