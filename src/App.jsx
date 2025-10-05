@@ -5,6 +5,7 @@ import Products from "./Pages/Products";
 import Detail from "./Pages/Detail"
 import About from "./Pages/About";
 import Home from "./Pages/Home";
+import LogIn from "./Pages/LogIn";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -46,6 +47,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products products={products}/>} />
         <Route path="/detail/:id" element={<Detail products={products}/>} />
+        <Route path="/login" element={<LogIn />} />
       </Routes>
     </div>
   )

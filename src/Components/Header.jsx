@@ -16,7 +16,7 @@ function Header () {
                 </Nav>
 
                 <div className="d-flex align-items-center">
-                    <Button variant="primary" className="m-1">Log In</Button>
+                    <Button as={Link} to={"/login"} variant="primary" className="m-1">Log In</Button>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 </div>
                 
