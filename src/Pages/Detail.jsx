@@ -1,6 +1,8 @@
-import { Container } from "react-bootstrap";
+import { Col, Row, Image, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import { useParams } from "react-router-dom";
+import Footer from "../Components/Footer";
 
 function Detail ({ products }){
     const  { id } = useParams();
@@ -12,10 +14,19 @@ function Detail ({ products }){
         <div>
             <Header/>
 
-            <Container>
-                <h1>{item.title}</h1>
-                <p>{item.description}</p>
-            </Container>
+            <Row className="align-items-center justify-content-center my-5">
+                <Col md={5} className="text-center">
+                    <Image src={item.images[0]} fluid rounded/>
+                </Col>
+                
+                <Col md={5} className="text-center text-md-start">
+                    <h1 className="fw-bold mb-3">{item.title}</h1>
+                    <p className="lead">{item.description}</p>
+                    <Button as={Link} to={"/products"} variant="primary">Back to List</Button>
+                </Col>
+            </Row>
+
+            <Footer />
         </div>
     )
 }
