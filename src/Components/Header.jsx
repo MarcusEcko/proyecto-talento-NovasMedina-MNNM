@@ -1,8 +1,16 @@
 import { Container, Navbar, Nav, Button, Dropdown } from "react-bootstrap";
-import { Link } from 'react-router-dom';
-import Products from "../Pages/Products";
+import { Link, useNavigate } from 'react-router-dom';
 
 function Header () {
+
+    const navigate = useNavigate();
+    const auth = localStorage.getItem("auth"); //true or null
+
+    const handleLogout = () => {
+        localStorage.removeItem("auth");
+        navigate("/login");
+    }
+
     return(
         <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg" sticky="top" className="">
             <Container fluid>
@@ -16,7 +24,15 @@ function Header () {
                 </Nav>
 
                 <div className="d-flex align-items-center">
-                    <Button as={Link} to={"/login"} variant="primary" className="m-1">Log In</Button>
+                    {!auth ? (
+                        <Button as={Link} to={"/login"} variant="primary" className="m-1">Login</Button>
+                    ) : (
+                        <div>
+                            <Button variant="success" as={Link} to="/admin">Admin</Button>
+                            <Button variant="danger" onClick={handleLogout}>Logout</Button>
+                        </div>
+                    )}
+
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 </div>
                 

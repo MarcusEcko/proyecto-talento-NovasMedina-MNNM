@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Button, Col, Row, Form } from "react-bootstrap";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
+import { useNavigate } from "react-router-dom";
 
 function LogIn() {
     const [validated, setValidated] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -15,6 +17,11 @@ function LogIn() {
 
         setValidated(true);
     }
+
+    if(validated){
+        localStorage.setItem("auth", "true");
+        navigate("/admin"); 
+    };
 
     return(
         <div className="App">

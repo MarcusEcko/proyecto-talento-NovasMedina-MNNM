@@ -6,6 +6,7 @@ import Detail from "./Pages/Detail"
 import About from "./Pages/About";
 import Home from "./Pages/Home";
 import LogIn from "./Pages/LogIn";
+import Admin from './Pages/Admin';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -48,6 +49,7 @@ function App() {
         <Route path="/products" element={<Products products={products}/>} />
         <Route path="/detail/:id" element={<Detail products={products}/>} />
         <Route path="/login" element={<LogIn />} />
+        <Route path="/Admin" element={<Admin />}/>
       </Routes>
     </div>
   )
