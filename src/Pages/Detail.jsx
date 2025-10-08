@@ -8,7 +8,7 @@ function Detail ({ products }){
     const  { id } = useParams();
     const item = products.find(p => p.id === Number(id));
 
-    if(!item) return <h1>Producto no encontrado</h1>;
+    if(!item) return <h1>Item not Found!</h1>;
 
     return(
         <div>

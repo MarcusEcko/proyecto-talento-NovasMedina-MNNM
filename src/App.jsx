@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
       const fetchData = async () => {
           try {
-              const resp = await fetch('https://dummyjson.com/products?limit=10&skip=10');
+              const resp = await fetch('https://dummyjson.com/products?limit=0&skip=10');
               const data = await resp.json();
               setProducts(data.products);
               setCargando(false);
