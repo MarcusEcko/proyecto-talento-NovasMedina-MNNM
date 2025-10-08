@@ -1,27 +1,42 @@
 import { useState } from "react";
-import { Button, Col, Row, Form } from "react-bootstrap";
+import { Alert, Button,  Form } from "react-bootstrap";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import { useNavigate } from "react-router-dom";
 
 function LogIn() {
     const [validated, setValidated] = useState(false);
+    const [password, setPassword] = useState("");
+    const [user, setUser] = useState("");
+    const [error, setError] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
+        event.preventDefault(); //evita que la pagina recargue
+        
         const form = event.currentTarget;
-        if(form.checkValidity() === false) {
-            event.preventDefault();
+        setValidated(true); //validacion visual
+
+        if (form.checkValidity() === false) { //si algun campo no es valido, no nos permite seguir
             event.stopPropagation();
+            return;
+        }
+        
+        //usuario y pass a validar
+        const correctUser = "admin";
+        const correctPass = "1234";
+        
+        if(user === correctUser && password === correctPass){
+            setError("");
+            localStorage.setItem("auth", true);
+            alert("Welcome, Admin!");
+            navigate("/admin"); 
+        } else {
+            setError("Wrong User or Password. please, try again.");
         }
 
-        setValidated(true);
     }
 
-    if(validated){
-        localStorage.setItem("auth", "true");
-        navigate("/admin"); 
-    };
 
     return(
         <div className="App">
@@ -48,25 +63,41 @@ function LogIn() {
                 <h2 className="text-center mb-4">Log In</h2>
 
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                    
+                    {/* si hay un error, lo muestra con una alerta */}
+                    {error && <Alert variant="danger">{error}</Alert>} 
+                    
                     <Form.Group className="mb-3" controlId="ValidationCustom01">
-                    <Form.Label>UserName:</Form.Label>
-                    <Form.Control required type="text" placeholder="User" />
-                    <Form.Control.Feedback>Looks Good!</Form.Control.Feedback>
+                        <Form.Label>UserName:</Form.Label>
+                        <Form.Control 
+                            required
+                            type="text"
+                            placeholder="User"
+                            value={user}
+                            onChange={(e) => setUser(e.target.value)}
+                        />
+                        <Form.Control.Feedback>Looks Good!</Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="ValidationCustom02">
-                    <Form.Label>Password:</Form.Label>
-                    <Form.Control required type="password" placeholder="Your password" />
-                    <Form.Control.Feedback>Password Accepted!</Form.Control.Feedback>
+                        <Form.Label>Password:</Form.Label>
+                        <Form.Control 
+                            required 
+                            type="password" 
+                            placeholder="Your password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <Form.Control.Feedback>Password Accepted!</Form.Control.Feedback>
                     </Form.Group>
 
                     <Form.Group className="mb-3">
-                    <Form.Check
-                        required
-                        label="Agree to terms and conditions"
-                        feedback="You must accept our terms to continue"
-                        feedbackType="invalid"
-                    />
+                        <Form.Check
+                            required
+                            label="Agree to terms and conditions"
+                            feedback="You must accept our terms to continue"
+                            feedbackType="invalid"
+                        />
                     </Form.Group>
 
                     <div className="text-center">

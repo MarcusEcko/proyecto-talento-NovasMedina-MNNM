@@ -7,6 +7,7 @@ import About from "./Pages/About";
 import Home from "./Pages/Home";
 import LogIn from "./Pages/LogIn";
 import Admin from './Pages/Admin';
+import ProtectedRoute from "./Components/ProtectedRoute";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -30,12 +31,12 @@ function App() {
   }, []);
 
   //SPINNER
-  if(cargando) {
-      return(
-      <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-      </Spinner>
-      );
+  if (cargando) {
+    return (
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <Spinner animation="border" role="status" />
+      </div>
+    );
   }
 
   if(error) return <p>{error}</p>
@@ -49,7 +50,13 @@ function App() {
         <Route path="/products" element={<Products products={products}/>} />
         <Route path="/detail/:id" element={<Detail products={products}/>} />
         <Route path="/login" element={<LogIn />} />
-        <Route path="/Admin" element={<Admin />}/>
+        
+        {/* PROTECTED ROUTES */}
+        <Route path="/Admin" element={
+          <ProtectedRoute>
+            <Admin products={products} />
+          </ProtectedRoute>
+        }/>
       </Routes>
     </div>
   )
