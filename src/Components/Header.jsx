@@ -1,7 +1,10 @@
 import { Container, Navbar, Nav, Button, Dropdown } from "react-bootstrap";
 import { Link, useNavigate } from 'react-router-dom';
+import { useCart } from "./CartProvider";
 
 function Header () {
+    const { cart } = useCart();
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
     const navigate = useNavigate();
     const auth = localStorage.getItem("auth"); //true or null
@@ -15,7 +18,7 @@ function Header () {
         <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg" sticky="top" className="">
             <Container fluid>
                 <Nav className="me-auto">
-                    <Link to="/">
+                    <Link to="/" className="text-decoration-none">
                         <Navbar.Brand>
                             <i className="bi bi-bootstrap-fill"></i> {''}
                             Shopping Cart
@@ -54,7 +57,10 @@ function Header () {
                             </Dropdown.Menu>
                         </Dropdown>
                     </Nav>
-                    <i className="bi bi-cart4 text-white fs-2 m-1"></i>
+                    
+                    <Link to="/Cart" className="text-white text-decoration-none">
+                        <i className="bi bi-cart4 text-white fs-2 m-1"></i>{totalItems}
+                    </Link>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
