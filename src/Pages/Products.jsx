@@ -2,7 +2,7 @@ import { Col, Container, Row, Card, Button } from "react-bootstrap";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
-import { useCart } from "../Components/CartProvider";
+import { useCart } from "../Context/CartProvider";
 
 function Products ({ products }) {
     const items = products.slice(0, 12);

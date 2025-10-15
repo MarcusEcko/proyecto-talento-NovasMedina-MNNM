@@ -1,6 +1,6 @@
 import { Container, Navbar, Nav, Button, Dropdown } from "react-bootstrap";
 import { Link, useNavigate } from 'react-router-dom';
-import { useCart } from "./CartProvider";
+import { useCart } from "../Context/CartProvider";
 
 function Header () {
     const { cart } = useCart();

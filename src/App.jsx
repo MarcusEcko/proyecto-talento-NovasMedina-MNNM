@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
-import { CartProvider } from "./Components/CartProvider";
+import { CartProvider } from "./Context/CartProvider";
 import Products from "./Pages/Products";
 import Detail from "./Pages/Detail"
 import About from "./Pages/About";
@@ -13,7 +13,7 @@ import Cart from "./Pages/Cart";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [cargando, setCargando] = useState(true); //starts true
+  const [cargando, setCargando] = useState(true); //por defecto true
   const [error, setError] = useState(null);
 
   useEffect(() => {
