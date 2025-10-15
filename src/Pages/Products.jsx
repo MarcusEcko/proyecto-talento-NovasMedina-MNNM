@@ -17,7 +17,7 @@ function Products () {
             <Container className="my-5">
                 <Row xs={1} md={3} className="g-4">
                 {items.map((i) => {
-                    const cartItem = cart.find((p) => p.id === i.id);
+                    const cartItem = cart.find((p) => p.id === i.id); //veo si el item ya está en el carrito (info util para botones)
 
                     return (
                     <Col key={i.id}>
@@ -42,7 +42,7 @@ function Products () {
                             >
                                 Description
                             </Button>
-
+                            
                             {cartItem ? (
                                 <>
                                 {cartItem.quantity > 1 && (
