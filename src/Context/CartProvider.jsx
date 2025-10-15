@@ -1,5 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { Spinner } from "react-bootstrap";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CartContext = createContext();
 
@@ -7,7 +9,7 @@ export function CartProvider({ children }) {
     const [products, setProducts] = useState([]);
     const [cargando, setCargando] = useState(true); //por defecto true
     const [error, setError] = useState(null);
-    
+
     //estado del carrito
     const [cart, setCart] = useState(() => {
         const savedCart = localStorage.getItem("cart");
@@ -38,19 +40,8 @@ export function CartProvider({ children }) {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
 
-    //SPINNER
-    if (cargando) {
-        return (
-        <div className="d-flex justify-content-center align-items-center vh-100">
-            <Spinner animation="border" role="status" />
-        </div>
-        );
-    }
-
-    if(error) return <p>{error}</p>
-    
-
     //FUNCIONES DEL CARRITO
+    // --- AGREGAR AL CARRITO ---
     const addToCart = (product) => {
         setCart((prev) => {
         const existing = prev.find((item) => item.id === product.id);
@@ -64,12 +55,16 @@ export function CartProvider({ children }) {
             return [...prev, { ...product, quantity: 1 }];
         }
         });
+
+        toast.success(`${product.title} successfully added!`); // --- NOTIFICACIÓN
     };
 
+    //QUITAR DEL CARRITO
     const removeFromCart = (id) => {
-        setCart((prev) => prev.filter((item) => item.id !== id));
+        setCart((prev) => prev.filter((item) => item.id !== id)); //QUITA TODOS LOS PRODUCTOS DE ESTE TIPO (MEJORAR PROXIMAMENTE)
     };
 
+    //LIMPIAR CARRITO
     const clearCart = () => setCart([]);
 
     // --- RENDER ---

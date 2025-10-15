@@ -1,4 +1,4 @@
-import { Container, Navbar, Nav, Button, Dropdown } from "react-bootstrap";
+import { Container, Navbar, Nav, Button, Dropdown, Badge } from "react-bootstrap";
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from "../Context/CartProvider";
 
@@ -7,7 +7,7 @@ function Header () {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
     const navigate = useNavigate();
-    const auth = localStorage.getItem("auth"); //true or null
+    const auth = localStorage.getItem("auth"); //true o null
 
     const handleLogout = () => {
         localStorage.removeItem("auth");
@@ -59,7 +59,10 @@ function Header () {
                     </Nav>
                     
                     <Link to="/Cart" className="text-white text-decoration-none">
-                        <i className="bi bi-cart4 text-white fs-2 m-1"></i>{totalItems}
+                        <i className="bi bi-cart4 text-white fs-2 m-1"></i>
+                        <Badge bg="secondary">
+                            {totalItems}
+                        </Badge>
                     </Link>
                 </Navbar.Collapse>
             </Container>
