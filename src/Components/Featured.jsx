@@ -1,8 +1,10 @@
 import { Card, Row, Col, Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useCart } from '../Context/CartProvider';
 
-function Featured ({ products }) {
+function Featured () {
 
+    const { products } = useCart();
     const items = products.slice(0, 5);
     
     return(

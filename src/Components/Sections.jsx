@@ -1,8 +1,10 @@
 import { Row, Col, Card, Button, Container, CardImgOverlay } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useCart } from '../Context/CartProvider';
 
-function Sections ({ products }) {
+function Sections () {
 
+    const { products } = useCart();
     const items = products.slice(0, 6);
 
     return(

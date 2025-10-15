@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import { useParams } from "react-router-dom";
 import Footer from "../Components/Footer";
+import { useCart } from "../Context/CartProvider";
 
-function Detail ({ products }){
+function Detail (){
+    const { products } = useCart();
     const  { id } = useParams();
     const item = products.find(p => p.id === Number(id));
 

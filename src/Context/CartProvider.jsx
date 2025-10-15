@@ -1,17 +1,56 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { Spinner } from "react-bootstrap";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
+    const [products, setProducts] = useState([]);
+    const [cargando, setCargando] = useState(true); //por defecto true
+    const [error, setError] = useState(null);
+    
+    //estado del carrito
     const [cart, setCart] = useState(() => {
         const savedCart = localStorage.getItem("cart");
         return savedCart ? JSON.parse(savedCart) : [];
     });
 
+    //FUNCIONES
+    const fetchData = async () => { //obtener productos de la API
+        try {
+            const resp = await fetch('https://dummyjson.com/products?limit=0&skip=10');
+            const data = await resp.json();
+            setProducts(data.products);
+            setCargando(false);
+        } catch (err) {
+            console.error(err);
+            setError(err);
+            setCargando(false);
+        }
+    }
+    
+    //cargar productos una sola vez
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    //guardar carrito en localstorage por cada cambio en este
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
     }, [cart]);
 
+    //SPINNER
+    if (cargando) {
+        return (
+        <div className="d-flex justify-content-center align-items-center vh-100">
+            <Spinner animation="border" role="status" />
+        </div>
+        );
+    }
+
+    if(error) return <p>{error}</p>
+    
+
+    //FUNCIONES DEL CARRITO
     const addToCart = (product) => {
         setCart((prev) => {
         const existing = prev.find((item) => item.id === product.id);
@@ -33,8 +72,22 @@ export function CartProvider({ children }) {
 
     const clearCart = () => setCart([]);
 
+    // --- RENDER ---
+    //SPINNER
+    if (cargando) {
+        return (
+        <div className="d-flex justify-content-center align-items-center vh-100">
+            <Spinner animation="border" role="status" />
+        </div>
+        );
+    }
+
+    if(error) return <p>Error: {error.message}</p>
+
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
+        <CartContext.Provider 
+            value={{ cart, products, fetchData, addToCart, removeFromCart, clearCart }}
+        >
             {children}
         </CartContext.Provider>
     );

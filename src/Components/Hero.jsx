@@ -1,8 +1,10 @@
 import { Carousel , Container, Button} from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useCart } from "../Context/CartProvider";
 
-function Hero ({ products }) {
+function Hero () {
 
+    const { products } = useCart();
     const items = products.slice(0, 5);
 
     return(

@@ -4,10 +4,10 @@ import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
 import { useCart } from "../Context/CartProvider";
 
-function Products ({ products }) {
+function Products () {
+    const { products, addToCart } = useCart();
     const items = products.slice(0, 12);
 
-    const { addToCart } = useCart();
 
     return(
         <>

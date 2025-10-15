@@ -1,8 +1,9 @@
 import { Container, Table } from "react-bootstrap";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
+import { useCart } from "../Context/CartProvider";
 
-function Admin ({ products }) {
+function Admin () {
     {/*----------------- DONE WITH PROTECTEDROUTE.JSX -------------
         const auth = localStorage.getItem("auth");
         const navigate = useNavigate();
@@ -12,6 +13,7 @@ function Admin ({ products }) {
         }    
     */}
 
+    const { products } = useCart();
     const items = products.slice(0, 20); 
 
     return(

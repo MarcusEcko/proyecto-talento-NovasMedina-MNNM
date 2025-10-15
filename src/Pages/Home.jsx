@@ -5,8 +5,11 @@ import Featured from "../Components/Featured";
 import Benefits from "../Components/Benefits";
 import NewsLetter from "../Components/NewsLetter";
 import Footer from "../Components/Footer";
+import { useCart } from "../Context/CartProvider";
 
-function Home({ products }) {
+function Home() {
+    const { products } = useCart();
+
     return (
         <div>
             <Header />
