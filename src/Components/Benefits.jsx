@@ -19,7 +19,7 @@ function Benefits() {
                 <Card className="h-100 text-center">
                 <Card.Img 
                     variant="top" 
-                    src={item.img} 
+                    src={item.img}
                     className="p-3" 
                     style={{ height: "150px", objectFit: "contain" }} 
                 />
@@ -31,7 +31,7 @@ function Benefits() {
             ))}
         </Row>
         </Container>
-  );
+    );
 }
 
 export default Benefits;
