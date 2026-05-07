@@ -1,16 +1,78 @@
-# React + Vite
+# Proyecto Final - Talento Tech
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web desarrollada como proyecto final para el programa **Talento Tech**.  
+El proyecto está enfocado en el desarrollo Front End utilizando tecnologías modernas de JavaScript.
 
-Currently, two official plugins are available:
+## 🚀 Deploy
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 **Demo del proyecto:**  
+[Proyecto Deployado en Vercel](https://proyecto-talento-novas-medina-mnnm-five.vercel.app/)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 Tecnologías utilizadas
 
-## Expanding the ESLint configuration
+- HTML5
+- CSS3
+- JavaScript
+- React
+- Bootstrap
+- Git & GitHub
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📦 Instalación y uso
+
+Clonar el repositorio:
+
+```bash
+git clone https://github.com/marconovas/proyecto-talento-NovasMedina-MNNM/tree/master
+```
+
+Entrar en la carpeta del proyecto:
+
+```bash
+cd nombre-del-proyecto
+```
+
+Instalar dependencias:
+
+```bash
+npm install
+```
+
+Iniciar el proyecto:
+
+```bash
+npm run dev
+```
+
+---
+
+## ✨ Funcionalidades
+
+- Gestión dinámica de datos
+- Interfaz responsive
+- Consumo de API
+- Navegación entre páginas
+- Componentes reutilizables
+- Manejo de estados
+
+---
+
+## 📌 Estado del proyecto
+
+✅ Proyecto finalizado  
+🚧 Posibles mejoras futuras y nuevas funcionalidades
+
+---
+
+## 👨‍💻 Autor
+
+Desarrollado por **Marco Novas Medina**.
+
+---
+
+## 📄 Licencia
+
+Este proyecto fue realizado con fines educativos.
